@@ -12,6 +12,8 @@ struct ContentView: View {
     @ObservedObject var datas = ReadData()
     
     var body: some View {
+        VStack{
+        Text("Pokedex")
         List(datas.users) { user in
             VStack(alignment: .leading) {
                 Text(user.name)
@@ -39,6 +41,7 @@ struct ContentView: View {
                     ProgressView()
                 })
             }
+        }
         }
     }
 }

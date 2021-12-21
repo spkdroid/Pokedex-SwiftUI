@@ -24,7 +24,6 @@ class ReadData: ObservableObject  {
         let data = try? Data(contentsOf: url)
         let users = try? JSONDecoder().decode([Pokedex].self, from: data!)
         self.users = users!
-        
     }
      
 }
