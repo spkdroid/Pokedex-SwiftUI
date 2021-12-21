@@ -12,7 +12,7 @@
 import Foundation
 
 // MARK: - WelcomeElement
-struct Pokedex: Codable,Identifiable {
+struct Pokedex: Codable,Identifiable,Hashable {
     let name, id: String
     let imageurl: String
     let xdescription, ydescription, height, category: String
