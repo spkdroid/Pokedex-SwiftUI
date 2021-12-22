@@ -17,7 +17,18 @@ struct DetailView: View {
     }
     
     var body: some View{
-        Text(user.name)
+        VStack(alignment: .center) {
+            AsyncImage(url: URL(string: user.imageurl)
+                       ,content: { image in
+                image.resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 400, maxHeight: 250)
+            },
+                       placeholder: {
+                ProgressView()
+            })
+            Text(user.name)
+        }
     }
 }
 

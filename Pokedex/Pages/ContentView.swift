@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var datas = ReadData()
-    @State private var fullText: String = ""
     @State private var searchText = ""
     
     var body: some View {
