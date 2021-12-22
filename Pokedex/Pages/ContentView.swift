@@ -13,14 +13,13 @@ struct ContentView: View {
     @State private var fullText: String = ""
     @State private var searchText = ""
     
-    
     var body: some View {
         NavigationView {
             VStack{
                 List {
                     ForEach(searchResults, id: \.self) {
                         user in
-                        NavigationLink(destination: DetailView()) {
+                        NavigationLink(destination: DetailView(user:user)) {
                             VStack(alignment: .leading) {
                                 Text(user.name)
                                     .font(.title)

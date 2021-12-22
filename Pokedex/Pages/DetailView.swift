@@ -7,8 +7,17 @@
 
 import SwiftUI
 
+
 struct DetailView: View {
+    
+    let user:Pokedex
+    
+    init (user:Pokedex) {
+        self.user = user
+    }
+    
     var body: some View{
-        Text("Hello")
+        Text(user.name)
     }
 }
+
