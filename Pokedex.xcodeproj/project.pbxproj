@@ -15,6 +15,7 @@
 		215C3DC2277158BA001A2201 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = 215C3DC1277158BA001A2201 /* pokemon.json */; };
 		215C3DC4277159C5001A2201 /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C3DC3277159C5001A2201 /* ReadData.swift */; };
 		215C3DC62772B6EC001A2201 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C3DC52772B6EC001A2201 /* DetailView.swift */; };
+		21FC4D05277357DF001C1638 /* StockCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 21FC4D04277357DF001C1638 /* StockCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21FC4D05277357DF001C1638 /* StockCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +113,9 @@
 			dependencies = (
 			);
 			name = Pokedex;
+			packageProductDependencies = (
+				21FC4D04277357DF001C1638 /* StockCharts */,
+			);
 			productName = Pokedex;
 			productReference = 215C3DA92770C629001A2201 /* Pokedex.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +144,9 @@
 				Base,
 			);
 			mainGroup = 215C3DA02770C629001A2201;
+			packageReferences = (
+				21FC4D03277357DF001C1638 /* XCRemoteSwiftPackageReference "StockCharts" */,
+			);
 			productRefGroup = 215C3DAA2770C629001A2201 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -373,6 +381,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21FC4D03277357DF001C1638 /* XCRemoteSwiftPackageReference "StockCharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/denniscm190/StockCharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21FC4D04277357DF001C1638 /* StockCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21FC4D03277357DF001C1638 /* XCRemoteSwiftPackageReference "StockCharts" */;
+			productName = StockCharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 215C3DA12770C629001A2201 /* Project object */;
 }
