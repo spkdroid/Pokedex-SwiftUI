@@ -23,7 +23,7 @@ struct ContentView: View {
                                 Text(user.name)
                                     .font(.title)
                                     .fontWeight(.heavy)
-                                    .foregroundColor(Color.gray)
+                                    .foregroundColor(Color.black)
                                 HStack{
                                     Text(user.weight)
                                         .font(.title3)

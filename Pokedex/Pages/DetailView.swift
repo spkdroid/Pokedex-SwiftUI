@@ -17,7 +17,7 @@ struct DetailView: View {
     }
     
     var body: some View{
-        VStack(alignment: .center) {
+        VStack(alignment: .leading,spacing: 0) {
             AsyncImage(url: URL(string: user.imageurl)
                        ,content: { image in
                 image.resizable()
@@ -28,7 +28,11 @@ struct DetailView: View {
                 ProgressView()
             })
             Text(user.name)
-        }
+                .font(.title)
+                .fontWeight(.heavy)
+                .foregroundColor(Color.black)
+            Text(user.xdescription)
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 
