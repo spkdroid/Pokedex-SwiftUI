@@ -58,6 +58,26 @@ struct DetailView: View {
                                 .fontWeight(.semibold)
                             Text(user.height)
                         })
+                    
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .foregroundColor(.white)
+                        .shadow(color: Color(.gray).opacity(0.15), radius: 10)
+                        .overlay(
+                            
+                            VStack(alignment: .leading) {
+                                Text("Type")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                
+                                ForEach(0..<user.weaknesses.count) { i in
+                                    Text(user.weaknesses[i].rawValue)
+                                }
+                            }.padding()
+                        )
+                    
+                    
+                    
                 }
                 
                 RoundedRectangle(cornerRadius: 25)
@@ -66,7 +86,7 @@ struct DetailView: View {
                     .shadow(color: Color(.gray).opacity(0.15), radius: 10)
                     .overlay(
                         VStack(alignment: .leading) {
-                            Text("Hit Points")
+                            Text("Hit Points - " + String(user.hp))
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
@@ -82,7 +102,7 @@ struct DetailView: View {
                     .shadow(color: Color(.gray).opacity(0.15), radius: 10)
                     .overlay(
                         VStack(alignment: .leading) {
-                            Text("Attack")
+                            Text("Attack - " + String(user.attack))
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
@@ -98,7 +118,7 @@ struct DetailView: View {
                     .shadow(color: Color(.gray).opacity(0.15), radius: 10)
                     .overlay(
                         VStack(alignment: .leading) {
-                            Text("Defence")
+                            Text("Defence - " + String(user.defense))
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
@@ -114,7 +134,7 @@ struct DetailView: View {
                     .shadow(color: Color(.gray).opacity(0.15), radius: 10)
                     .overlay(
                         VStack(alignment: .leading) {
-                            Text("Speed")
+                            Text("Speed - "+String(user.speed))
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
@@ -131,7 +151,7 @@ struct DetailView: View {
                     .shadow(color: Color(.gray).opacity(0.15), radius: 10)
                     .overlay(
                         VStack(alignment: .leading) {
-                            Text("Special Attack")
+                            Text("Special Attack - "+String(user.specialAttack))
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
@@ -148,7 +168,7 @@ struct DetailView: View {
                     .shadow(color: Color(.gray).opacity(0.15), radius: 10)
                     .overlay(
                         VStack(alignment: .leading) {
-                            Text("Special Attack")
+                            Text("Special Defense - "+String(user.specialDefense))
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
@@ -168,17 +188,6 @@ struct DetailView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Weakness")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                            
-                            ForEach(0..<user.weaknesses.count) { i in
-                                Text(user.weaknesses[i].rawValue)
-                            }
-                        }.padding()
-                        
-                        
-                        VStack(alignment: .leading) {
-                            Text("Pokemon Type")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
