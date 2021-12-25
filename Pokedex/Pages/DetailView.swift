@@ -36,6 +36,7 @@ struct DetailView: View {
                 Text(user.xdescription)
                 // Hit Points
                 
+                
                 HStack {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 100, height: 100, alignment: .center)
@@ -157,8 +158,36 @@ struct DetailView: View {
                             .padding()
                     )
                 
-                
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            
+            RoundedRectangle(cornerRadius: 25)
+                .frame(width: 400, height: 120, alignment: .center)
+                .foregroundColor(.white)
+                .shadow(color: Color(.gray).opacity(0.15), radius: 10)
+                .overlay(
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Weakness")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            ForEach(0..<user.weaknesses.count) { i in
+                                Text(user.weaknesses[i].rawValue)
+                            }
+                        }.padding()
+                        
+                        
+                        VStack(alignment: .leading) {
+                            Text("Pokemon Type")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            ForEach(0..<user.weaknesses.count) { i in
+                                Text(user.weaknesses[i].rawValue)
+                            }
+                        }.padding()
+                    }
+                )
         }
     }
 }
