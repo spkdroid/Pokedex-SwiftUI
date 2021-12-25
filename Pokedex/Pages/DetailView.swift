@@ -12,7 +12,7 @@ import StockCharts
 struct DetailView: View {
     
     let user:Pokedex
-    
+
     init (user:Pokedex) {
         self.user = user
     }
@@ -34,9 +34,24 @@ struct DetailView: View {
                     .fontWeight(.heavy)
                     .foregroundColor(Color.black)
                 Text(user.xdescription)
+                
+                VStack(alignment: .leading) {
+                    Text("Type")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    ForEach(0..<user.typeofpokemon.count) { i in
+                        HStack
+                        {
+                            Circle()
+                                .fill(checkColor(yourColor: user.typeofpokemon[i].rawValue))
+                                .frame(width: 15, height: 15)
+                        
+                        Text(user.typeofpokemon[i].rawValue)
+                        }
+                    }
+                }.padding()
+                
                 // Hit Points
-                
-                
                 HStack {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 100, height: 100, alignment: .center)
@@ -58,26 +73,6 @@ struct DetailView: View {
                                 .fontWeight(.semibold)
                             Text(user.height)
                         })
-                    
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 100, height: 100, alignment: .center)
-                        .foregroundColor(.white)
-                        .shadow(color: Color(.gray).opacity(0.15), radius: 10)
-                        .overlay(
-                            
-                            VStack(alignment: .leading) {
-                                Text("Type")
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-                                
-                                ForEach(0..<user.weaknesses.count) { i in
-                                    Text(user.weaknesses[i].rawValue)
-                                }
-                            }.padding()
-                        )
-                    
-                    
-                    
                 }
                 
                 RoundedRectangle(cornerRadius: 25)
@@ -161,27 +156,10 @@ struct DetailView: View {
                             .padding()
                     )
                 
-                // Special Defence
-                RoundedRectangle(cornerRadius: 25)
-                    .frame(width: 400, height: 120, alignment: .center)
-                    .foregroundColor(.white)
-                    .shadow(color: Color(.gray).opacity(0.15), radius: 10)
-                    .overlay(
-                        VStack(alignment: .leading) {
-                            Text("Special Defense - "+String(user.specialDefense))
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                            
-                            CapsuleChartView(percentageOfWidth: CGFloat(Float(user.specialDefense))/100, style: CapsuleChartStyle(capsuleColor: Color.cyan))
-                                .padding(.top)
-                        }
-                            .padding()
-                    )
-                
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             
             RoundedRectangle(cornerRadius: 25)
-                .frame(width: 400, height: 120, alignment: .center)
+                .frame(width: 400, height: 240, alignment: .leading)
                 .foregroundColor(.white)
                 .shadow(color: Color(.gray).opacity(0.15), radius: 10)
                 .overlay(
@@ -192,7 +170,14 @@ struct DetailView: View {
                                 .fontWeight(.semibold)
                             
                             ForEach(0..<user.weaknesses.count) { i in
-                                Text(user.weaknesses[i].rawValue)
+                                HStack
+                                {
+                                    
+                                    Circle()
+                                        .fill(checkColor(yourColor: user.weaknesses[i].rawValue))
+                                        .frame(width: 15, height: 15)
+                                    Text(user.weaknesses[i].rawValue)
+                                }
                             }
                         }.padding()
                     }
@@ -204,5 +189,46 @@ struct DetailView: View {
             maxHeight: .infinity,
             alignment: .topLeading
         )
+    }
+    
+    func checkColor(yourColor: String) -> Color {
+        switch yourColor {
+        case "Bug":
+            return .brown
+        case "Dark":
+            return .gray
+        case "Dragon":
+            return .cyan
+        case "Electric":
+            return .yellow
+        case "Fairy":
+            return .pink
+        case "Fighting":
+            return .blue
+        case "Fire":
+            return .red
+        case "Flying":
+            return .green
+        case "Ghost":
+            return .black
+        case "Grass":
+            return .green
+        case "Ground":
+            return .brown
+        case "Ice":
+            return .gray
+        case "Normal":
+            return .mint
+        case "Poison":
+            return .teal
+        case "Rock":
+            return .indigo
+        case "Steel":
+            return .orange
+        case "Water":
+            return .blue
+        default:
+            return .pink
+        }
     }
 }
